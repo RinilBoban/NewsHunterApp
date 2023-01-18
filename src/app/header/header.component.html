@@ -1,0 +1,214 @@
+<!-- Navbar Start -->
+<nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">NewsHunter</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- <li class="nav-item">
+            <a class="nav-link" routerLink="technology">Technology</a>
+          </li> -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Category
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="science">Science</a></li>
+              <li><a class="dropdown-item" routerLink="health">Health</a></li>
+              <li><a class="dropdown-item" routerLink="business">Business</a></li>
+              <li><a class="dropdown-item" routerLink="sports">Sports</a></li>
+              <li><a class="dropdown-item" routerLink="technology">Technology</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else?</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="font-family: 'Sarabun', sans-serif;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Country
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="india">India</a></li>
+              <li><a class="dropdown-item" routerLink="health">Australia</a></li>
+              <li><a class="dropdown-item" routerLink="business">Germany</a></li>
+              <li><a class="dropdown-item" routerLink="sports">Japan</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Other Nations</a></li>
+            </ul>
+          </li>
+
+          <!-- Button trigger modal -->
+          <li class="nav-item">
+            <a class="nav-link active Adsearch" aria-current="page" data-bs-toggle="modal" data-bs-target="#exampleModal">Advanced Search &nbsp;<i><i class="fa-brands fa-searchengin"></i></i></a>
+          </li>
+
+        </ul>
+        <form class="d-flex" role="search">
+          <input id="soup" #enterNews class="form-control me-2" style="font-family: 'Space Grotesk', sans-serif;" type="text" placeholder="Search here..." aria-label="Search">
+          <button class="btn btn-outline-dark" (click)="search(enterNews)" type="button">Search</button>
+        </form>
+        <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fa-solid fa-bars"></i></button>
+
+      </div>
+    </div>
+  </nav>
+<!-- Navbar End -->
+
+            <!-- Offcanvas Start -->
+            <div class="off">
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                  <div class="offcanvas-header" [ngSwitch]="user">
+                    <div *ngSwitchCase="">
+                      <h5 class="offcanvas-title b1" style="margin-left: -40px;" data-bs-dismiss="offcanvas" id="offcanvasRightLabel"><button data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Login</button></h5>
+                      <h5 class="offcanvas-title b2" id="offcanvasRightLabel"><button data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Register</button></h5>
+                    </div>
+                    <div *ngIf="user">
+                      <img src="./../../assets/Account-User-PNG.png" width="50px" alt="">
+                      <div class="logbuttons">
+                        <h5 class="offcanvas-title b1" id="offcanvasRightLabel"><button style="background-image: linear-gradient(90deg, rgb(151, 195, 252), rgb(240, 255, 246));">{{user}}</button></h5>
+                        <h5 class="offcanvas-title b2" id="offcanvasRightLabel"><button style="background-image: linear-gradient(90deg, rgb(236, 165, 165),rgb(240, 255, 246));" (click)="logout()">Log Out</button></h5>  
+                      </div>
+                    </div>
+                    <!-- <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button> -->
+                  </div>
+                  <div class="offcanvas-body">                        
+                     <ul>
+                      <li><a routerLink="technology" data-bs-dismiss="offcanvas">Technology</a></li>
+                      <li><a routerLink="health" data-bs-dismiss="offcanvas">Health</a></li>
+                      <li><a routerLink="entertainment" data-bs-dismiss="offcanvas">Entertainment</a></li>
+                      <li><a routerLink="business" data-bs-dismiss="offcanvas">Business</a></li>
+                      <li><a routerLink="science" data-bs-dismiss="offcanvas">Science</a></li>
+                      <li><a routerLink="sports" data-bs-dismiss="offcanvas">Sports</a></li>
+                      <li><a routerLink="" data-bs-dismiss="offcanvas">General</a></li>
+                      <li><a routerLink="" data-bs-dismiss="offcanvas">Russia-Ukraine War</a></li>
+                      <li><a routerLink="" data-bs-dismiss="offcanvas">About Us</a></li>
+                     </ul>
+                  </div>
+                </div>
+            </div>
+                <!-- Off Canvas End -->
+    
+            <!-- Modal Start -->
+            <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" style="color: cadetblue;" id="exampleModalToggleLabel">User Login</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+                      <div class="parent container" style="text-align: center; width: 65%;">
+  
+                          <div class="child username">
+                              <input formControlName="acno" type="text" id="accid" name="acno" placeholder="Enter Account Number" class="form-control mt-3">
+                              <div class="text-danger" *ngIf="this.loginForm.get('acno')?.errors && this.loginForm.get('acno')?.touched"><p>Invalid Account Number</p></div>
+                  
+                          </div>
+                  
+                          <div class="child">
+                              <input formControlName="psw" type="password" id="psw" name="psw" placeholder="Enter Password" class="form-control mt-3">
+                              <div class="text-danger" *ngIf="this.loginForm.get('psw')?.errors && this.loginForm.get('psw')?.touched"><p>Invalid Password</p></div>
+                  
+                          </div>
+                          
+                          <div class="child">
+                              <button class="btn btn-outline-info" data-bs-dismiss="modal">Log In</button>
+                          </div>
+                                      
+                      </div>
+              
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-light" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Register</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header mod2">
+                    <h1 class="modal-title fs-5" style="color: black;" id="exampleModalToggleLabel2">Register here</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body mod2">
+                    <form [formGroup]="registerForm" (ngSubmit)="register()">
+                      <div class="row">
+                          <!-- <div class="col-4"><h3 style="color: white;" class="text-info p-5">{{testText}}</h3></div> -->
+                          <div class="container mt-1 mb-2" style="text-align: center; width: 70%;">
+                              <h2 class="text-center mt-3" style="color: steelblue;">Registration Form</h2>
+                              
+                          <div class="mt-2">
+                              <input formControlName="uname" type="text" id="uid" name="uname" placeholder="Enter User Name" class="form-control mt-3">
+                              <div class="text-danger" *ngIf="this.registerForm.get('uname')?.errors && this.registerForm.get('uname')?.touched"><p>Invalid User Name</p></div>
+                          </div>
+                   
+                              <input formControlName="acno" type="text" id="acid" name="acno" placeholder="Enter Account Number" class="form-control mt-3">
+                              <div class="text-danger" *ngIf="this.registerForm.get('acno')?.errors && this.registerForm.get('acno')?.touched"><p>Invalid Account Number</p></div>
+                              
+                              <input formControlName="psw" type="text" id="pid" name="psw" type="password" placeholder="Enter Password" class="form-control mt-3">
+                              <div class="text-danger" *ngIf="this.registerForm.get('psw')?.errors && this.registerForm.get('psw')?.touched"><p>Invalid Password</p></div>
+                  
+                              <button data-bs-target="#exampleModalToggle" data-bs-toggle="modal" class="btn btn-light btn-outline-secondary mt-3" type="submit">Register</button>
+                          </div>
+                          <div class="col-4"></div>
+                      </div>
+                  </form>                    </div>
+                  <div class="modal-footer mod2">
+                    <button class="btn btn-light btn-outline-dark" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Go to Login</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+<!-- Modal End -->                
+
+<!-- Vertically centered scrollable modal Start-->
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade admodal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content adcontent">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: rgb(18, 116, 116);">Advanced Search</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="d-flex" role="search">
+          <input #enterAdNews class="form-control me-2" type="text" placeholder=" Enter Search Keyword" aria-label="Search">
+        </form>
+        <hr>
+        <h6>Date Published</h6>
+        <label for="s1">From</label>&nbsp;
+        <input #datef id="s1" type="date">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="s2">To</label>&nbsp;
+        <input #datet id="s2" type="date">
+        <hr>
+        <h6>Source Domain</h6>
+        <div class="domain">
+          <div><button class="btn btn-outline-dark but" (click)="domain1()">BBC</button></div>
+          <div><button class="btn btn-outline-dark but" (click)="domain2()">Washington Post</button></div>
+          <div><button class="btn btn-outline-dark but" (click)="domain3()">CNN</button></div>
+          <div><button class="btn btn-outline-dark but" (click)="domain4()">Google News</button></div>                    
+        </div>
+        <hr>
+        <h6>Sort By</h6>
+        <div class="lang">
+          <div><button class="btn btn-outline-dark butt" (click)="language1()">Popularity</button></div>
+          <div><button class="btn btn-outline-dark butt" (click)="language2()">Relevance</button></div>
+          <div><button class="btn btn-outline-dark butt" (click)="language3()">Latest</button></div>
+        </div>        
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal" (click)="advanced(enterAdNews,datef,datet)" type="button">Search</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Vertically centered scrollable modal End-->

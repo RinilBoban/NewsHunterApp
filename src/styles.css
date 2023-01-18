@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Dancing+Script:wght@400;700&family=East+Sea+Dokdo&family=IBM+Plex+Mono&family=Indie+Flower&family=Lilita+One&family=Lobster&family=Merriweather&family=Moon+Dance&family=Pacifico&family=Playfair+Display:ital@0;1&family=Rubik+Bubbles&family=Sarabun&family=Sevillana&family=Space+Grotesk&family=Yeon+Sung&display=swap');
+
+.box{
+    padding: 10px 10px;
+    transition: 0.5s;
+    font-family: 'Merriweather', serif;
+}
+.box:hover{
+    transform: rotate(5deg);
+    box-shadow: 5px 10px 10px 8px #888888;
+    cursor: pointer;
+}
+
