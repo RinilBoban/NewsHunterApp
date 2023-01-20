@@ -18,6 +18,7 @@ import { SearchComponent } from './search/search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdvanceSearchComponent } from './advance-search/advance-search.component';
 import { IndiaComponent } from './india/india.component';
+import { ClipboardComponent } from './clipboard/clipboard.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { IndiaComponent } from './india/india.component';
     BusinessComponent,
     SearchComponent,
     AdvanceSearchComponent,
-    IndiaComponent
+    IndiaComponent,
+    ClipboardComponent
   ],
   imports: [
     BrowserModule,

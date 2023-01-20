@@ -45,15 +45,19 @@ export class HeaderComponent{
       this.ds.login(uname,psw)
       .subscribe((result:any)=>{
         localStorage.setItem('currentuser',JSON.stringify(result.currentUser))
+        localStorage.setItem('currentacno',JSON.stringify(result.currentAcno))
         alert(result.message);
         window.location.reload()
         this.router.navigateByUrl('')
-      })
+      },
+      (result:any)=>{
+        alert(result.error.message)
+      }
+      )
     }
     else{
       alert('Invalid form')
     }
-    // alert(`Welcome ${uname}`)
   }
 
   register(){
@@ -74,6 +78,7 @@ export class HeaderComponent{
   }
   logout(){
     localStorage.removeItem('currentuser')
+    localStorage.removeItem('currentacno')
     window.location.reload()
   }
 
@@ -81,6 +86,7 @@ export class HeaderComponent{
     let finder=term.value
     this.services.searchbox(finder)
     this.router.navigateByUrl('search')
+    this.enterNews=""
   }
 
   domain1(){

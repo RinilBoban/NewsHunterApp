@@ -44,6 +44,10 @@
             <a class="nav-link active Adsearch" aria-current="page" data-bs-toggle="modal" data-bs-target="#exampleModal">Advanced Search &nbsp;<i><i class="fa-brands fa-searchengin"></i></i></a>
           </li>
 
+          <li class="nav-item clip">
+            <a class="nav-link" routerLink="clipboard" aria-current="page">Clipboard &nbsp;<i><i class="fa-sharp fa-solid fa-clipboard"></i></i></a>
+          </li>
+
         </ul>
         <form class="d-flex" role="search">
           <input id="soup" #enterNews class="form-control me-2" style="font-family: 'Space Grotesk', sans-serif;" type="text" placeholder="Search here..." aria-label="Search">
@@ -61,15 +65,28 @@
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
                   <div class="offcanvas-header" [ngSwitch]="user">
                     <div *ngSwitchCase="">
-                      <h5 class="offcanvas-title b1" style="margin-left: -40px;" data-bs-dismiss="offcanvas" id="offcanvasRightLabel"><button data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Login</button></h5>
+                      <h5 class="offcanvas-title logb1" style="margin-left: -40px;" data-bs-dismiss="offcanvas" id="offcanvasRightLabel"><button data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Login</button></h5>
                       <h5 class="offcanvas-title b2" id="offcanvasRightLabel"><button data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Register</button></h5>
                     </div>
                     <div *ngIf="user">
-                      <img src="./../../assets/Account-User-PNG.png" width="50px" alt="">
+                      <img src="./../../assets/Account-User-PNG.png" style="margin-left: 40px;" width="50px" alt="">
                       <div class="logbuttons">
-                        <h5 class="offcanvas-title b1" id="offcanvasRightLabel"><button style="background-image: linear-gradient(90deg, rgb(151, 195, 252), rgb(240, 255, 246));">{{user}}</button></h5>
-                        <h5 class="offcanvas-title b2" id="offcanvasRightLabel"><button style="background-image: linear-gradient(90deg, rgb(236, 165, 165),rgb(240, 255, 246));" (click)="logout()">Log Out</button></h5>  
+                        <h5 class="offcanvas-title b1" id="offcanvasRightLabel">
+                          <div class="dropdown">
+                          <button style="background-image: linear-gradient(90deg, rgb(151, 195, 252), rgb(240, 255, 246));" class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">{{user}}</button>
+                          <ul class="dropdown-menu">
+                            <li>Add Profile Picture</li>
+                            <li>Delete Account</li>
+                            <li (click)="logout()">Log Out</li>
+                          </ul>
+                        </div>
+                        </h5>
+                          
+                          <!-- <h5 class="offcanvas-title b2" id="offcanvasRightLabel">
+                          <button style="background-image: linear-gradient(90deg, rgb(236, 165, 165),rgb(240, 255, 246));" (click)="logout()">Log Out</button>
+                        </h5>   -->
                       </div>
+
                     </div>
                     <!-- <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button> -->
                   </div>
@@ -95,7 +112,7 @@
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h1 class="modal-title fs-5" style="color: cadetblue;" id="exampleModalToggleLabel">User Login</h1>
+                    <h1 class="modal-title fs-5" style="color: rgb(95, 125, 160);" id="exampleModalToggleLabel">User Login</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
@@ -133,7 +150,7 @@
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header mod2">
-                    <h1 class="modal-title fs-5" style="color: black;" id="exampleModalToggleLabel2">Register here</h1>
+                    <h1 class="modal-title fs-5" style="color: steelblue;" id="exampleModalToggleLabel2">Register here</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body mod2">
@@ -175,10 +192,10 @@
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content adcontent">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: rgb(18, 116, 116);">Advanced Search</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: steelblue;">Advanced Search</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body modin">
         <form class="d-flex" role="search">
           <input #enterAdNews class="form-control me-2" type="text" placeholder=" Enter Search Keyword" aria-label="Search">
         </form>
@@ -191,17 +208,44 @@
         <hr>
         <h6>Source Domain</h6>
         <div class="domain">
-          <div><button class="btn btn-outline-dark but" (click)="domain1()">BBC</button></div>
+          <!-- button row 1 start -->
+          <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+            <label (click)="domain1()" class="btn btn-outline-dark" for="btnradio1">BBC</label>
+          
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+            <label (click)="domain2()" class="btn btn-outline-dark" for="btnradio2">Washington Post</label>
+          
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+            <label (click)="domain3()" class="btn btn-outline-dark" for="btnradio3">CNN</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+            <label (click)="domain4()" class="btn btn-outline-dark" for="btnradio3">Google News</label>
+          </div>
+          <!-- button row 1 end -->
+          <!-- <div><button class="btn btn-outline-dark but" (click)="domain1()">BBC</button></div>
           <div><button class="btn btn-outline-dark but" (click)="domain2()">Washington Post</button></div>
           <div><button class="btn btn-outline-dark but" (click)="domain3()">CNN</button></div>
-          <div><button class="btn btn-outline-dark but" (click)="domain4()">Google News</button></div>                    
+          <div><button class="btn btn-outline-dark but" (click)="domain4()">Google News</button></div>                     -->
         </div>
         <hr>
         <h6>Sort By</h6>
         <div class="lang">
-          <div><button class="btn btn-outline-dark butt" (click)="language1()">Popularity</button></div>
+          <!-- button row 2 start -->
+          <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="btnradio2" id="btnradio4" autocomplete="off" checked>
+            <label (click)="language1()" class="btn btn-outline-dark" for="btnradio4">Popularity</label>
+          
+            <input type="radio" class="btn-check" name="btnradio2" id="btnradio5" autocomplete="off">
+            <label (click)="language2()" class="btn btn-outline-dark" for="btnradio5">Relevance</label>
+          
+            <input type="radio" class="btn-check" name="btnradio2" id="btnradio6" autocomplete="off">
+            <label (click)="language3()" class="btn btn-outline-dark" for="btnradio6">Latest</label>
+          </div>
+          <!-- button row 2 end -->
+          <!-- <div><button class="btn btn-outline-dark butt" (click)="language1()">Popularity</button></div>
           <div><button class="btn btn-outline-dark butt" (click)="language2()">Relevance</button></div>
-          <div><button class="btn btn-outline-dark butt" (click)="language3()">Latest</button></div>
+          <div><button class="btn btn-outline-dark butt" (click)="language3()">Latest</button></div> -->
         </div>        
 
       </div>

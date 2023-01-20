@@ -7,22 +7,104 @@
 }
 .box:hover{
     /* transform: scale(1.1); */
-    transform: rotate(5deg);
+    /* transform: rotate(5deg); */
+    transform: translateY(-1.5%);
     box-shadow: 5px 10px 10px 8px #888888;
 
 }
 .box h5{
     font-size: 16px;
-    /* font-weight: bold; */
 }
-/* .box:hover{
+.descript p{
+    display: none;
+}
+.ticket-wrapper{
+    position: relative;
+    max-width: 1230px;
+    /* margin: auto; */
+    /* padding-top: 10px; */
+}
+.bigheading{
+    display: block;
+    position: absolute;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: 15px;
+    background-color: #e60000;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 5px;
+    letter-spacing: 3px;
+    font-weight: 600;
+    z-index: 2;
+    animation: break 500ms ease-in-out 10ms infinite;
+}
+.text-update{
+    height: 33px;
+    background-color:rgb(239, 246, 252);
+    /* background-image: linear-gradient(aliceblue, rgb(160, 207, 245)); */
+    overflow: hidden;
+    position: relative;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 15px;
+    font-weight: 500px;
+    display: flex;
+    align-items: center;
+    left: 125px;
+}
+.text-update p{
+    position: absolute;
+    width: 150%;
+    margin: 0;
+    font-weight: 600;
+    text-align: left;
+    transform: translateX(100%);
+    animation: moving 25s linear infinite;
+}
 
+@keyframes moving{
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+@keyframes break{
+    from{
+        color: #e60000;
+    }
+    to{
+        color: aliceblue;
+    }
+}
+/* .bigheading::after,.bigheading::before{
+    content: '';
+    width: 0;
+    position: absolute;
+    border-width: 78px;
+    border-style: solid;
+    top: 0;
+    z-index: -1;
 } */
-/* .carousel{
-    padding: 70px;
-    height: 450px;
+/* .bigheading::before{
+    border-color: #e60000 transparent transparent #e60000 transparent;
+    right: -78px;
+}
+.bigheading::after{
+    border-color: #e60000 transparent transparent #e60000 transparent;
+    left: -78px;
+    top: -78px;
 } */
-.carousel-caption{
-    background-color: #fff;
-    /* margin-top: 250px; */
+.b2{
+    margin-left: 400px;
+    margin-top: -350px;
+}
+.card{
+    border: none;
+}
+.card-text{
+    overflow: hidden;
 }

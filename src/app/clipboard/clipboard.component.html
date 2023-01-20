@@ -1,0 +1,60 @@
+<!-- Empty Cart -->
+<div class="container border border-dark m-5 p-5" *ngIf="emsg">
+    <div class="row text-center">
+        <div class="col">
+            <img src="https://cdn.dribbble.com/users/1753953/screenshots/3818675/animasi-emptystate.gif" width="300px" alt="">
+            <h3 class="mt-3">Your Clipboard is empty</h3>
+            <button routerLink="/" class="btn btn-dark mt-2"><i class="fa-regular fa-clipboard"></i></button>
+        </div>
+    </div>
+</div>
+<!-- Empty Cart End -->
+
+<!-- Original card Start -->
+<div class="container mt-5">
+    <!-- <button (click)="deleteAll()">Clear All</button> -->
+    <div class="row">
+        <div *ngFor="let d of clipNewsDisplay; let i = index" class="col-lg-3 mt-3 mb-3">
+
+            <div class="box">
+                <!-- <img src="{{d.urlToImage}}" width="100%" alt=""> -->
+                <h5 class="mt-2 mb-2">{{d.title}}</h5>
+                <p>{{d.description}}</p>
+                <!-- <a class="btn btn-dark mt-2" href="{{d.url}}">Read More</a>     -->
+                <!-- <div class="id">{{ i }}</div> -->
+                <button class="btn btn-outline-dark" (click)="delete(i)">Delete Clip</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Original card End -->
+
+<!-- With Content -->
+<!-- <section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div class="col mb-5" *ngFor="let news of cartNewsDisplay">
+                <div class="card h-100"> -->
+                    <!-- Product image-->
+                    <!-- <img class="card-img-top" [src]="news.image" alt="..." /> -->
+                    <!-- Product details-->
+                    <!-- <div class="card-body p-4">
+                        <div class="text-center"> -->
+                            <!-- Product name-->
+                            <!-- <h5 class="fw-bolder">{{news.title}}</h5> -->
+                            <!-- Product price-->
+                            <!-- ${{news.description}}
+                        </div>
+                    </div> -->
+                    <!-- Product actions-->
+                    <!-- <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center">
+                            <button class="btn btn-outline-danger mt-auto"><i class="fa fa-trash"></i></button> &nbsp;
+                            <button class="btn btn-outline-success mt-auto"><i class="fa fa-cart-plus"></i></button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+<!-- Content Ends -->

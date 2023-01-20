@@ -41,7 +41,7 @@ export class NewsapiservicesService {
 
   //news api url
   newsApiUrl="https://newsapi.org/v2/top-headlines?country=us&apiKey=f4f2f00c1afa486985f6d08596b38f21"
-  // newsApiUrl="https://newsappi.org/v2/top-headlines?country=us&apiKey=f4f2f00c1afa486985f6d08596b38ASS"
+  // newsApiUrl="https://newsappi.org/v2/top-headlines?country=us&apiKey=f4f2f00c1afa486985f6d08596b3NOGO"
 
   //search news api url
   // searchApiUrl=`https://newsapi.org/v2/everything?q=${this.finder}&apiKey=f4f2f00c1afa486985f6d08596b38f21`

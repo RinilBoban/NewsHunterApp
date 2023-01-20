@@ -1,6 +1,8 @@
 .navbar{
     padding-left: 70px;
     padding-right: 70px;
+    /* background-image: linear-gradient(powderblue,aliceblue); */
+
 }
 .navbar-brand{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -13,21 +15,24 @@
 }
 .dropdown-menu a{
     font-family: 'Sarabun', sans-serif;
+    color: black;
 }
 .dropdown-menu a:hover{
-    background-color:rgb(235, 234, 234);
+    background-color:lightblue;
+    color: #fff;
     border: none;
 }
 .dropdown:hover .dropdown-menu{
     display: block;
     border: none;
-    background-color: rgb(241, 248, 248);
+    background-color: rgb(225, 238, 253);
 }
 .dropdown:hover .dropdown-toggle{
-    background-color:rgb(241, 248, 248);
+    background-color: rgb(225, 238, 253);
+    color: black;
 }
 .offcanvas{
-    background-color: #fff;
+    background-color: rgb(225, 238, 253);
 }
 .offcanvas-body a{
     display: flex;
@@ -43,7 +48,7 @@
     padding: 10px 40px;
     /* color: black; */
     color: rgb(14, 13, 13);
-    background-color: #fff;
+    background-color: rgb(225, 238, 253);
     text-decoration: none;
     letter-spacing: 2px;
     border-bottom: 1px solid black;
@@ -51,11 +56,11 @@
 }
 .offcanvas-body li:hover{
     /* background-color: #d9effa; */
-    background-image: linear-gradient(90deg,  powderblue, aliceblue);
+    background-image: linear-gradient(90deg,  lightskyblue, aliceblue);
     cursor: pointer;
 }
 .offcanvas-body li:hover:nth-child(even){
-    background-image: linear-gradient(90deg, rgb(151,252,221), aliceblue);
+    background-image: linear-gradient(90deg, rgb(151, 198, 252), aliceblue);
     cursor: pointer;
 }
 .b2{
@@ -66,13 +71,13 @@
     border: 0;
     padding: 0.5em 1.5em;
     cursor: pointer;
-    background-image: linear-gradient(90deg, rgb(151, 252, 221), rgb(240, 255, 246));
+    background-image: linear-gradient(90deg, rgb(151, 206, 252), rgb(240, 255, 246));
     color:#003147;
     transition: 0.5s;
-    margin-left: 70px;
+    margin-left: 180px;
 }
 .b1 button:hover{
-    background-image: linear-gradient(90deg, rgb(240, 255, 246), rgb(48, 250, 186));
+    background-image: linear-gradient(90deg, rgb(240, 255, 246), rgb(48, 142, 250));
     color: rgb(0, 0, 0);
     transform: rotate(360deg);
 }
@@ -124,7 +129,7 @@
 }
 .modal-content{
     /* color: ; */
-    background-image: linear-gradient(powderblue,aliceblue);
+    background-image: linear-gradient(rgb(225, 238, 253),aliceblue);
     /* background-image: linear-gradient(rgb(218, 213, 213),rgb(255, 255, 255)); */
 }
 .logfor{
@@ -132,5 +137,37 @@
 }
 .modal-body h6{
     text-align: center;
-    color: teal;
+    color:steelblue;
+}
+.modin input{
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(218, 231, 255);
+}
+.clip{
+    margin-left: 220px;
+}
+.dropdown-menu li{
+    background-color: rgb(231, 243, 253);
+    /* margin-left: 100px; */
+}
+.dropdown-menu li:hover{
+ cursor: pointer;
+}
+.off img:hover{
+    cursor: pointer;
+}
+.logb1 button{
+    border: 0;
+    padding: 0.5em 1.5em;
+    cursor: pointer;
+    background-image: linear-gradient(90deg, rgb(151, 206, 252), rgb(240, 255, 246));
+    color:#003147;
+    transition: 0.5s;
+    margin-left: 75px;
+}
+.logb1 button:hover{
+    background-image: linear-gradient(90deg, rgb(240, 255, 246), rgb(48, 142, 250));
+    color: rgb(0, 0, 0);
+    transform: rotate(360deg);
 }

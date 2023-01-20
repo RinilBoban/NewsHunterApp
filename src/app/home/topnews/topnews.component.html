@@ -1,36 +1,58 @@
-
-<!-- Body News Start -->
-<div class="container mt-5">
-    <h4>Top News</h4>
-    <div class="row">
-        <div *ngFor="let d of topheadingDisplay" class="col-lg-3 mt-3 mb-3">
-            <div class="box">
-                <img src="{{d.urlToImage}}" width="100%" alt="">
-                <h5 class="mt-2 mb-2">{{d.title}}</h5>
-                <!-- <p>{{d.content}}</p> -->
-                <a class="btn btn-dark mt-2" href="{{d.url}}">Read More</a>    
-            </div>
-        </div>
+<!-- breaking news start -->
+<div class="ticket-wrapper">
+    <div class="bigheading">
+        Breaking News
+    </div>
+    <div class="text-update">
+        <p>Scientists using the Giant Metrewave Radio Telescope in Pune, India detected a radio signal emitted by hydrogen in distant galaxy.</p>
     </div>
 </div>
-<!-- Body News End -->
-
-<!-- Test Area Start-->
-<!-- <div class="container mt-5">
+<div class="container mt-5">
   <h4>Top News</h4>
   <div class="row">
-      <div class="col-lg-3 mt-3 mb-3">
-          <div class="box">
-              <img src="./../../../assets/don.jpg" width="100%" alt="">
-              <h5 class="mt-2 mb-2">Italy's most wanted Mafia boss Mathia Binotto arrested in Sicily BBC News</h5> -->
-              <!-- <p>{{d.content}}</p> -->
-              <!-- <a class="btn btn-dark mt-2" href="">Read More</a>    
+      <div class="col col-lg-3 mt-3 mb-3" *ngFor="let d of topheadingDisplay; let i = index">
+          <div class="card h-100">
+              <img src="{{d.urlToImage}}" class="card-img-top" alt="...">
+              <div class="card-body">
+                  <h5 class="card-title">{{d.title}}</h5>
+                  <p class="card-text"></p>
+              </div>
+              <div class="card-footer">
+                  <div class="btn-group" role="group" aria-label="Basic example">
+                      <a type="button" (click)="modalAct(i)" class="btn btn-outline-dark" data-bs-toggle="modal"
+                          data-bs-target="#exampleModal2">Read More</a>
+                      <a type="button" class="btn btn-dark" href="{{d.url}}">Go to</a>
+                  </div>
+              </div>
           </div>
       </div>
   </div>
 </div>
- -->
-<!-- Test Area End -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel2">{{topheadingDisplay[modi].title}}</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              {{topheadingDisplay[modi].description}}
+              <br>
+              <small class="text-muted">{{topheadingDisplay[modi].source.name}}</small>
+          </div>
+          <div class="modal-footer">
+              <a type="button" class="btn btn-outline-dark" href="{{topheadingDisplay[modi].url}}">Go to</a>
+              <button (click)="addTo(modi,topheadingDisplay[modi].title,topheadingDisplay[modi].description) "
+                  type="button" data-bs-dismiss="modal" class="btn btn-dark">Save to clipboard</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+            
 
 
 
@@ -39,7 +61,3 @@
 <!-- Category @ 18:00 -->
 <!-- Business @ 22:10 -->
 <!-- ngx loading bar @ 25:45 -->
-
-<!-- <div class="div" *ngFor="let d of topheadingDisplay">
-    {{d.title}}
-</div> -->

@@ -10,4 +10,15 @@
     box-shadow: 5px 10px 10px 8px #888888;
     cursor: pointer;
 }
-
+.box a:hover{
+    background-color: #fff;
+    color: black;
+}
+.card{
+    border: none;
+    transition: 0.5s;
+}
+.card:hover{
+    transform: translateY(-1.5%);
+    box-shadow: 5px 10px 10px 8px #888888;
+}

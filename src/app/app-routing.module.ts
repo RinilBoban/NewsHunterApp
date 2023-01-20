@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdvanceSearchComponent } from './advance-search/advance-search.component';
 import { BusinessComponent } from './business/business.component';
+import { ClipboardComponent } from './clipboard/clipboard.component';
 import { EntertainmentComponent } from './entertainment/entertainment.component';
 import { HeaderComponent } from './header/header.component';
 import { HealthComponent } from './health/health.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path:'', redirectTo:'/home',pathMatch:'full' },
   { path: 'header', component:HeaderComponent},
   { path: 'india', component:IndiaComponent},
+  { path: 'clipboard', component:ClipboardComponent},
   { path: 'search', component:SearchComponent},
   { path: 'sports', component:SportsComponent},
   { path: 'business', component:BusinessComponent},
