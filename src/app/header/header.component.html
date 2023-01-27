@@ -30,7 +30,7 @@
               Country
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" routerLink="india">India</a></li>
+              <li><a class="dropdown-item" routerLink="usa">United States</a></li>
               <li><a class="dropdown-item" routerLink="health">Australia</a></li>
               <li><a class="dropdown-item" routerLink="business">Germany</a></li>
               <li><a class="dropdown-item" routerLink="sports">Japan</a></li>
@@ -38,22 +38,26 @@
               <li><a class="dropdown-item" href="#">Other Nations</a></li>
             </ul>
           </li>
-
           <!-- Button trigger modal -->
           <li class="nav-item">
             <a class="nav-link active Adsearch" aria-current="page" data-bs-toggle="modal" data-bs-target="#exampleModal">Advanced Search &nbsp;<i><i class="fa-brands fa-searchengin"></i></i></a>
           </li>
 
-          <li class="nav-item clip">
-            <a class="nav-link" routerLink="clipboard" aria-current="page">Clipboard &nbsp;<i><i class="fa-sharp fa-solid fa-clipboard"></i></i></a>
-          </li>
+          <!-- <p>{{sdate| date:'short'}}</p> -->
 
+          <li class="nav-item clip">
+            <a class="nav-link" routerLink="clipboard" aria-current="page">Clipboard &nbsp;<i><i class="fa-sharp fa-solid fa-clipboard"></i>
+            {{clipcount}}
+            </i></a>
+          </li>
         </ul>
+
         <form class="d-flex" role="search">
           <input id="soup" #enterNews class="form-control me-2" style="font-family: 'Space Grotesk', sans-serif;" type="text" placeholder="Search here..." aria-label="Search">
           <button class="btn btn-outline-dark" (click)="search(enterNews)" type="button">Search</button>
         </form>
-        <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fa-solid fa-bars"></i></button>
+        <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fa-solid fa-bars"></i>
+        </button>
 
       </div>
     </div>
@@ -65,17 +69,20 @@
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
                   <div class="offcanvas-header" [ngSwitch]="user">
                     <div *ngSwitchCase="">
-                      <h5 class="offcanvas-title logb1" style="margin-left: -40px;" data-bs-dismiss="offcanvas" id="offcanvasRightLabel"><button data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Login</button></h5>
-                      <h5 class="offcanvas-title b2" id="offcanvasRightLabel"><button data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Register</button></h5>
+                      <h5 class="offcanvas-title logb1" style="margin-left: -40px;" data-bs-dismiss="offcanvas" id="offcanvasRightLabel"><button class="btn" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Login</button></h5>
+                      <!-- <h5 class="offcanvas-title logb1" style="margin-left: -40px;" data-bs-dismiss="offcanvas" id="offcanvasRightLabel"><button data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Login</button></h5> -->
+                      <h5 class="offcanvas-title b2" id="offcanvasRightLabel"><button class="btn" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Register</button></h5>
                     </div>
                     <div *ngIf="user">
-                      <img src="./../../assets/Account-User-PNG.png" style="margin-left: 40px;" width="50px" alt="">
+                      <img [src]="profilepic" style="margin-left: 40px;  margin-top: 10px;" width="50px" alt="./../../assets/Account-User-PNG.png">
                       <div class="logbuttons">
                         <h5 class="offcanvas-title b1" id="offcanvasRightLabel">
-                          <div class="dropdown">
+                          <div class="dropdown dropstart">
                           <button style="background-image: linear-gradient(90deg, rgb(151, 195, 252), rgb(240, 255, 246));" class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">{{user}}</button>
-                          <ul class="dropdown-menu">
-                            <li>Add Profile Picture</li>
+                          <ul class="dropdown-menu shit1">
+                            <li>
+                              <label (change)="AddDP($event)" for="propic">Add Profile Picture</label>                              
+                            <input id="propic" type="file" (change)="AddDP($event)"></li>
                             <li>Delete Account</li>
                             <li (click)="logout()">Log Out</li>
                           </ul>
@@ -191,8 +198,8 @@
 <div class="modal fade admodal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content adcontent">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: steelblue;">Advanced Search</h1>
+      <div class="modal-header modhe">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Advanced Search</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body modin">
@@ -249,7 +256,7 @@
         </div>        
 
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer modfo">
         <button class="btn btn-secondary" data-bs-dismiss="modal" (click)="advanced(enterAdNews,datef,datet)" type="button">Search</button>
       </div>
     </div>

@@ -1,4 +1,39 @@
 <div class="container mt-5">
+
+<!-- Card Start -->
+<!-- <div class="extra">
+<div class="card cardb text-bg-dark">
+    <img src="{{entNewsDisplay[15].urlToImage}}" class="card-img" alt="...">
+    <div class="card-img-overlay">
+      <h5 class="card-title">{{entNewsDisplay[15].title}}</h5>
+    </div>
+  </div>
+
+  <div class="card cardb text-bg-dark">
+    <img src="{{entNewsDisplay[16].urlToImage}}" class="card-img" alt="...">
+    <div class="card-img-overlay">
+      <h5 class="card-title">{{entNewsDisplay[16].title}}</h5>
+    </div>
+  </div>
+
+  <div class="card cardb c3 text-bg-dark">
+    <img src="{{entNewsDisplay[17].urlToImage}}" class="card-img" alt="...">
+    <div class="card-img-overlay">
+      <h5 class="card-title">{{entNewsDisplay[17].title}}</h5>
+    </div>
+  </div>
+
+  <div class="card cardb c4 text-bg-dark">
+    <img src="{{entNewsDisplay[18].urlToImage}}" class="card-img" alt="...">
+    <div class="card-img-overlay">
+      <h5 class="card-title">{{entNewsDisplay[18].title}}</h5>
+    </div>
+  </div>
+</div> -->
+
+
+<!-- Card End -->
+
     <h4>Entertainment News</h4>
     <div class="row">
         <div class="col col-lg-3 mt-3 mb-3" *ngFor="let d of entNewsDisplay; let i = index">
@@ -29,11 +64,12 @@
             <div class="modal-body">
                 {{entNewsDisplay[modi].description}}
                 <br>
-                <small class="text-muted">{{entNewsDisplay[modi].source.name}}</small>
+                <small class="text-muted">{{entNewsDisplay[modi].source.name}}</small><br>
+                <small class="text-muted">{{entNewsDisplay[modi].publishedAt}}</small>
             </div>
             <div class="modal-footer">
                 <a type="button" class="btn btn-outline-dark" href="{{entNewsDisplay[modi].url}}">Go to</a>
-                <button (click)="addTo(modi,entNewsDisplay[modi].title,entNewsDisplay[modi].description) "
+                <button (click)="addTo(modi,entNewsDisplay[modi].title,entNewsDisplay[modi].description,entNewsDisplay[modi].urlToImage)"
                     type="button" data-bs-dismiss="modal" class="btn btn-dark">Save to clipboard</button>
             </div>
         </div>

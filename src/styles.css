@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Acme&family=Dancing+Script:wght@400;700&family=East+Sea+Dokdo&family=IBM+Plex+Mono&family=Indie+Flower&family=Lilita+One&family=Lobster&family=Merriweather&family=Moon+Dance&family=Pacifico&family=Playfair+Display:ital@0;1&family=Rubik+Bubbles&family=Sarabun&family=Sevillana&family=Space+Grotesk&family=Yeon+Sung&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Acme&family=Dancing+Script:wght@400;700&family=East+Sea+Dokdo&family=IBM+Plex+Mono&family=Indie+Flower&family=Lilita+One&family=Lobster&family=Merriweather&family=Moon+Dance&family=Pacifico&family=Playfair+Display:ital@0;1&family=Rubik+Bubbles&family=Sarabun&family=Sevillana&family=Space+Grotesk&family=Yeon+Sung&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Cormorant+SC:wght@400;700&family=Dancing+Script:wght@400;700&family=East+Sea+Dokdo&family=IBM+Plex+Mono&family=IM+Fell+DW+Pica&family=Indie+Flower&family=Lilita+One&family=Lobster&family=Merriweather&family=Moon+Dance&family=Pacifico&family=Playfair+Display:ital@0;1&family=Rubik+Bubbles&family=Sarabun&family=Sevillana&family=Space+Grotesk&family=Ubuntu&family=Yeon+Sung&display=swap');
 
 .box{
     padding: 10px 10px;
@@ -21,4 +22,18 @@
 .card:hover{
     transform: translateY(-1.5%);
     box-shadow: 5px 10px 10px 8px #888888;
+}
+
+
+.modal-body{
+    background-color: rgb(241, 241, 255);
+    /* font-size: 21px; */
+    padding: 35px;
+
+}
+.modal-header{
+    background-color: rgb(241, 241, 255);
+}
+.modal-footer{
+    background-color: rgb(241, 241, 255);  
 }

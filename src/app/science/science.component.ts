@@ -20,12 +20,13 @@ export class ScienceComponent implements OnInit{
     })    
     this.modi=0
   }
-  addTo(index:any,tit:any,des:any){
+  addTo(index:any,tit:any,des:any,img:any){
     tit=this.scienceNewsDisplay[index].title
     des=this.scienceNewsDisplay[index].description
+    img=this.scienceNewsDisplay[index].urlToImage
     console.log(tit);
     console.log(des);
-    this.ds.addNews(tit,des)
+    this.ds.addNews(tit,des,img)
     .subscribe((result:any)=>{
       alert(result.message)
     },

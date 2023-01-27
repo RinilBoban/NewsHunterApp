@@ -20,9 +20,12 @@
 }
 .ticket-wrapper{
     position: relative;
-    max-width: 1230px;
+    max-width: 1200px;
     /* margin: auto; */
     /* padding-top: 10px; */
+    /* position: sticky;
+    top: 220;
+    z-index: 11; */
 }
 .bigheading{
     display: block;
@@ -80,6 +83,16 @@
         color: aliceblue;
     }
 }
+/* .datetime{
+    background-color: steelblue;
+    width: 173px;
+    padding-left: 10px;
+    padding-right: 5px;
+    margin-top: -30px;
+    z-index: 11;
+    position: relative;
+    margin-left: 1160px;
+} */
 /* .bigheading::after,.bigheading::before{
     content: '';
     width: 0;

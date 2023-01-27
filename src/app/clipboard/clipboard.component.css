@@ -1,0 +1,15 @@
+.delebut{
+    width: 90px;
+    height: 30px;
+    margin-top: -20px;
+    margin-left: 1000px;
+    border: 1px solid red;
+    color:red;
+    background-color: #fff;
+    transition: 0.5s;
+}
+.delebut:hover{
+    transform: scale(1.04);
+    transition: 0.4s;
+    box-shadow: 3px 3px 3px #fcaaaa;
+}

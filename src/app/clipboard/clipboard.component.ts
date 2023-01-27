@@ -33,7 +33,8 @@ export class ClipboardComponent implements OnInit{
     this.ds.deleteclip(id).subscribe(
       (result:any)=>{
         alert(result.message)
-        this.router.navigateByUrl('clipboard')
+        window.location.reload()
+        // this.router.navigateByUrl('clipboard')
         this.clipNewsDisplay=result.wishlist
         if(this.clipNewsDisplay.length==0){
           this.emsg='Empty Wishlist'
@@ -46,15 +47,17 @@ export class ClipboardComponent implements OnInit{
     )
   }
 
-  deleteAll(){
-    this.ds.deleteAllClip().subscribe(
+  deleteAll(id:any){
+    this.ds.deleteAllClip(id).subscribe(
       (result:any)=>{
         alert(result.message)
-        this.router.navigateByUrl('clipboard')
+        window.location.reload()
+        // this.router.navigateByUrl('clipboard')
         this.clipNewsDisplay=result.wishlist
         if(this.clipNewsDisplay.length==0){
           this.emsg='Empty Wishlist'
         }
+        // window.location.reload()
       },
       (result:any)=>{
         alert(result.error.message)

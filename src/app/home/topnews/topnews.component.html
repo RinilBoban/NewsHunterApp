@@ -4,8 +4,12 @@
         Breaking News
     </div>
     <div class="text-update">
-        <p>Scientists using the Giant Metrewave Radio Telescope in Pune, India detected a radio signal emitted by hydrogen in distant galaxy.</p>
+        <!-- <p>Scientists detected a radio signal using the Giant Metrewave Radio Telescope in Pune, India, emitted by hydrogen atoms in distant galaxy.</p> -->
+        <p>Twitter and YouTube censors BBC documentary revealing Indian Prime Minister Narendra Modi's role in 2002 massacre of Muslims in India</p>
     </div>
+    <!-- <div class="datetime">
+        <p>{{sdate| date:'short'}}</p>
+    </div> -->
 </div>
 <div class="container mt-5">
   <h4>Top News</h4>
@@ -38,11 +42,12 @@
           <div class="modal-body">
               {{topheadingDisplay[modi].description}}
               <br>
-              <small class="text-muted">{{topheadingDisplay[modi].source.name}}</small>
+              <small class="text-muted">{{topheadingDisplay[modi].source.name}}</small><br>
+              <small class="text-muted">{{topheadingDisplay[modi].publishedAt}}</small>
           </div>
           <div class="modal-footer">
               <a type="button" class="btn btn-outline-dark" href="{{topheadingDisplay[modi].url}}">Go to</a>
-              <button (click)="addTo(modi,topheadingDisplay[modi].title,topheadingDisplay[modi].description) "
+              <button (click)="addTo(modi,topheadingDisplay[modi].title,topheadingDisplay[modi].description,topheadingDisplay[modi].urlToImage)"
                   type="button" data-bs-dismiss="modal" class="btn btn-dark">Save to clipboard</button>
           </div>
       </div>

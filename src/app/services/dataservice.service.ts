@@ -1,15 +1,25 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DataserviceService {
+export class DataserviceService implements OnInit{
 
+  counter:any
   Addacno:any
   empty:any=''
+  newsarray:any=[]
+  newscart=new BehaviorSubject([])
 
   constructor(private http:HttpClient) { }
+
+  ngOnInit(): void {
+    // this.counter=JSON.parse(localStorage.getItem('clipcount')||'')
+    // this.newsarray.push(this.counter)
+    // this.newscart.next(this.newsarray)
+  }
 
   register(acno:any,username:any,password:any){
     
@@ -29,7 +39,11 @@ export class DataserviceService {
     return this.http.post('http://localhost:3000/login',data)
   }
 
-  addNews(title:any,description:any){
+  addNews(title:any,description:any,image:any){
+    this.counter=JSON.parse(localStorage.getItem('clipcount')||'')
+
+    this.newsarray.push(title)
+    this.newscart.next(this.newsarray)
     var account:any
     if(localStorage.getItem('currentacno')){
       this.Addacno=JSON.parse(localStorage.getItem('currentacno')||'')
@@ -37,13 +51,17 @@ export class DataserviceService {
       const clip={
       title,
       description,
+      image,
       account:this.Addacno
     }
     console.log(clip);    
+    // window.location.reload()
     return this.http.post('http://localhost:3000/addNews',clip)
   }
 
   getClips(){
+    // this.newsarray.push(title)
+    // this.newscart.next(this.newsarray)
     var account:any
     if(localStorage.getItem('currentacno')){
       this.Addacno=localStorage.getItem('currentacno')
@@ -53,21 +71,48 @@ export class DataserviceService {
     return this.http.post('http://localhost:3000/getClips',data)
   }
 
-  // deleteclip(id:any){
-  //   var data:any
-  //   data=JSON.parse(id)
-  //   return this.http.post('http://localhost:3000/deleteclip',data)
-  // }
   deleteclip(id:any){
-    return this.http.delete('http://localhost:3000/deleteclip/'+id)
+    this.newsarray.splice(id,1)
+    this.newscart.next(this.newsarray)
+    var account:any
+    var clipid:any
+    if(localStorage.getItem('currentacno')){
+      this.Addacno=JSON.parse(localStorage.getItem('currentacno')||'')
+    }  
+      const clip={
+      clipid:id,
+      account:this.Addacno
+    }
+    console.log(clip);    
+    return this.http.post('http://localhost:3000/deleteclip',clip)
   }
 
-  deleteAllClip(){
-    var sender:any
-    const datasender={
-      sender:this.empty
+  deleteAllClip(id:any){
+    var account:any
+    var clipid:any
+    if(localStorage.getItem('currentacno')){
+      this.Addacno=JSON.parse(localStorage.getItem('currentacno')||'')
+    }  
+      const clip={
+      clipid:id,
+      account:this.Addacno
     }
-    return this.http.delete('http://localhost:3000/deleteallclip')
+    console.log(clip);    
+    return this.http.post('http://localhost:3000/deleteallclip',clip)
+  }
+
+  addpro(updp:any){
+    var dp:any
+    var account:any
+    if(localStorage.getItem('currentacno')){
+      this.Addacno=JSON.parse(localStorage.getItem('currentacno')||'')
+    }  
+    const data={
+      dp:updp,
+      account:this.Addacno
+    }
+    console.log(data)
+    return this.http.post('http://localhost:3000/addpro',data)
   }
 
 }

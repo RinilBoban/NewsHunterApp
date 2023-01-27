@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { CheckboxControlValueAccessor, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -9,8 +10,9 @@ import { DataserviceService } from '../services/dataservice.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent{
+export class HeaderComponent implements OnInit{
 
+  // sdate:any
   user:any
   i:any
   enterNews:any
@@ -19,11 +21,15 @@ export class HeaderComponent{
   da2:any
   anews:any
   lang:any
-
+  clipcount:any
+  dpstore:any
+  profilepic:any='./../../assets/Account-User-PNG.png'
+// beginning ngoninit
   constructor(private services:NewsapiservicesService, private router:Router, private fb:FormBuilder, private ds:DataserviceService){
     if(localStorage.getItem('currentuser')){
       this.user=JSON.parse(localStorage.getItem('currentuser')||'')
     }  
+    // this.sdate=new Date();
   }
 
   loginForm=this.fb.group({
@@ -37,6 +43,48 @@ export class HeaderComponent{
     psw:['',[Validators.required,Validators.pattern('[0-9]+')]]  
   })
 
+  ngOnInit(): void {
+    // this.ds.newscart.subscribe(
+    //   (data:any)=>{
+    //     if(data){
+    //       this.clipcount=data.length
+
+    //       this.ds.getClips().subscribe(
+    //         (data:any)=>{
+    //           if(data){
+    //             this.clipcount=data.clipnews.length
+    //             // this.profilepic=data.propic[0].dp
+    //           }
+    //         }
+    //       )
+      
+
+    //     }
+    //   }
+    // )
+
+    //  test area start
+    this.ds.getClips().subscribe(
+      (data:any)=>{
+        if(data){
+
+              this.ds.newscart.subscribe(
+                (data1:any)=>{
+                  if(data1){
+                    this.clipcount=data1.length+data.clipnews.length
+
+                  }
+                }
+              )
+
+
+          this.clipcount=data.clipnews.length
+          // this.profilepic=data.propic[0].dp
+        }
+      }
+    )
+  }
+
   login(){
     var uname=this.loginForm.value.acno
     var psw=this.loginForm.value.psw
@@ -46,6 +94,7 @@ export class HeaderComponent{
       .subscribe((result:any)=>{
         localStorage.setItem('currentuser',JSON.stringify(result.currentUser))
         localStorage.setItem('currentacno',JSON.stringify(result.currentAcno))
+        localStorage.setItem('clipcount',JSON.stringify(result.clipcount))
         alert(result.message);
         window.location.reload()
         this.router.navigateByUrl('')
@@ -86,7 +135,7 @@ export class HeaderComponent{
     let finder=term.value
     this.services.searchbox(finder)
     this.router.navigateByUrl('search')
-    this.enterNews=""
+    this.enterNews.value=''
   }
 
   domain1(){
@@ -121,6 +170,21 @@ export class HeaderComponent{
     this.services.advanceSearchBox(this.anews,date1,date2,this.radio,this.lang)
     this.router.navigateByUrl('advancedSearch')
     
+  }
+
+  AddDP(dp:any){
+    this.dpstore=dp.target.files
+    console.log(this.dpstore); 
+    var reader= new FileReader()
+    reader.readAsDataURL(dp.target.files[0])  
+    reader.onload=(event:any)=>{
+      this.profilepic=event.target.result
+    }
+    this.ds.addpro(reader).subscribe(
+      (result:any)=>{
+        alert(result.message)
+      }
+    )
   }
 }
 

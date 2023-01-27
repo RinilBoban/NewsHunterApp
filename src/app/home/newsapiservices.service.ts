@@ -31,16 +31,16 @@ export class NewsapiservicesService {
   businessApiUrl="https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=f4f2f00c1afa486985f6d08596b38f21"
 
   //sportsnews api url
-  sportsApiUrl="https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=f4f2f00c1afa486985f6d08596b38f21"
+  sportsApiUrl="https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=f4f2f00c1afa486985f6d08596b38f21"
 
   //technews api url
   techApiUrl="https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=f4f2f00c1afa486985f6d08596b38f21"
 
     //news api url
-  INnewsApiUrl="https://newsapi.org/v2/top-headlines?country=in&apiKey=f4f2f00c1afa486985f6d08596b38f21"
+  INnewsApiUrl="https://newsapi.org/v2/top-headlines?country=us&apiKey=f4f2f00c1afa486985f6d08596b38f21"
 
   //news api url
-  newsApiUrl="https://newsapi.org/v2/top-headlines?country=us&apiKey=f4f2f00c1afa486985f6d08596b38f21"
+  newsApiUrl="https://newsapi.org/v2/top-headlines?country=in&apiKey=f4f2f00c1afa486985f6d08596b38f21"
   // newsApiUrl="https://newsappi.org/v2/top-headlines?country=us&apiKey=f4f2f00c1afa486985f6d08596b3NOGO"
 
   //search news api url

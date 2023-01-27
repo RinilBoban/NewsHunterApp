@@ -20,12 +20,13 @@ export class IndiaComponent implements OnInit{
     })
     this.modi=0
   }
-  addTo(index:any,tit:any,des:any){
+  addTo(index:any,tit:any,des:any,img:any){
     tit=this.indiaNewsDisplay[index].title
     des=this.indiaNewsDisplay[index].description
+    img=this.indiaNewsDisplay[index].urlToImage
     console.log(tit);
     console.log(des);
-    this.ds.addNews(tit,des)
+    this.ds.addNews(tit,des,img)
     .subscribe((result:any)=>{
       alert(result.message)
     },

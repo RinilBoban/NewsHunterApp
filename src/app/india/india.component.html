@@ -1,5 +1,5 @@
 <div class="container mt-5">
-    <h4>Top News - India</h4>
+    <h4>Top News - United States of America</h4>
     <div class="row">
         <div class="col col-lg-3 mt-3 mb-3" *ngFor="let d of indiaNewsDisplay; let i = index">
             <div class="card h-100">
@@ -29,11 +29,12 @@
             <div class="modal-body">
                 {{indiaNewsDisplay[modi].description}}
                 <br>
-                <small class="text-muted">{{indiaNewsDisplay[modi].source.name}}</small>
+                <small class="text-muted">{{indiaNewsDisplay[modi].source.name}}</small><br>
+                <small class="text-muted">{{indiaNewsDisplay[modi].publishedAt}}</small>
             </div>
             <div class="modal-footer">
                 <a type="button" class="btn btn-outline-dark" href="{{indiaNewsDisplay[modi].url}}">Go to</a>
-                <button (click)="addTo(modi,indiaNewsDisplay[modi].title,indiaNewsDisplay[modi].description) "
+                <button (click)="addTo(modi,indiaNewsDisplay[modi].title,indiaNewsDisplay[modi].description,indiaNewsDisplay[modi].urlToImage) "
                     type="button" data-bs-dismiss="modal" class="btn btn-dark">Save to clipboard</button>
             </div>
         </div>

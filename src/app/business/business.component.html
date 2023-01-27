@@ -1,4 +1,43 @@
 <div class="container mt-5">
+
+<!-- Carousel Start -->
+<div id="carouselExampleCaptions" class="carousel slide carousel-fade mb-5" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="2000">
+        <img src="{{busNewsDisplay[15].urlToImage}}" class="d-block w-100" alt=".">
+        <div class="carousel-caption d-none d-md-block" style="background-color: floralwhite; color:black; font-family: 'Times New Roman', Times, serif;">
+          <h2>{{busNewsDisplay[15].title}}</h2>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="{{busNewsDisplay[16].urlToImage}}" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block" style="background-color: rgba(56, 57, 37, 0.384); color:#fff; font-family: 'Times New Roman', Times, serif;">
+          <h1>{{busNewsDisplay[16].title}}</h1>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="{{busNewsDisplay[17].urlToImage}}" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block" style="background-color: rgba(240, 248, 255, 0.555); color:black; font-family: 'Times New Roman', Times, serif;">
+          <h2>{{busNewsDisplay[17].title}}</h2>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+<!-- Carousel End -->
+
     <h4>Business News</h4>
     <div class="row">
         <div class="col col-lg-3 mt-3 mb-3" *ngFor="let d of busNewsDisplay; let i = index">
@@ -29,11 +68,12 @@
             <div class="modal-body">
                 {{busNewsDisplay[modi].description}}
                 <br>
-                <small class="text-muted">{{busNewsDisplay[modi].source.name}}</small>
+                <small class="text-muted">{{busNewsDisplay[modi].source.name}}</small><br>
+                <small class="text-muted">{{busNewsDisplay[modi].publishedAt}}</small>
             </div>
             <div class="modal-footer">
                 <a type="button" class="btn btn-outline-dark" href="{{busNewsDisplay[modi].url}}">Go to</a>
-                <button (click)="addTo(modi,busNewsDisplay[modi].title,busNewsDisplay[modi].description) "
+                <button (click)="addTo(modi,busNewsDisplay[modi].title,busNewsDisplay[modi].description,busNewsDisplay[modi].urlToImage) "
                     type="button" data-bs-dismiss="modal" class="btn btn-dark">Save to clipboard</button>
             </div>
         </div>

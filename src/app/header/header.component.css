@@ -19,7 +19,8 @@
 }
 .dropdown-menu a:hover{
     background-color:lightblue;
-    color: #fff;
+    /* color:cornflowerblue; */
+    color:rgb(30, 46, 58);
     border: none;
 }
 .dropdown:hover .dropdown-menu{
@@ -79,22 +80,43 @@
 .b1 button:hover{
     background-image: linear-gradient(90deg, rgb(240, 255, 246), rgb(48, 142, 250));
     color: rgb(0, 0, 0);
-    transform: rotate(360deg);
+    /* transform: rotate(360deg); */
 }
 .b2 button{
-    border: 0;
     padding: 0.5em 1.5em;
     cursor: pointer;
-    background-image: linear-gradient(90deg, aliceblue, powderblue);
-    color:#003147;
-    transition: 0.5s;
+    border: 1px solid #3498db;
+    font-size: 20px;
+    color:#fff;
+    transition: 0.8s;
     margin-left: 35px;
+    position: relative;
+    overflow: hidden;
 }
 .b2 button:hover{
-    background-image: linear-gradient(45deg, rgb(55, 190, 207), rgb(228, 241, 253));
-    color: rgb(0, 0, 0);
-    transform: rotate(360deg);
+    color: #3498db;
 }
+
+.b2 button::before{
+    content: '';
+    position: absolute;
+    /* left: 0; */
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 180%;
+    background: #3498db;
+    z-index: -1;
+    transition: 0.8s;
+    bottom: 0;
+    /* border-radius: 50% 50% 0 0; */
+    border-radius: 0 0 50% 50%;
+}
+.b2 button:hover::before{
+    height: 0%;
+}
+
+
 .logbuttons{
     margin-top: -50px;
 }
@@ -139,15 +161,35 @@
     text-align: center;
     color:steelblue;
 }
+.modin{
+    background-image: linear-gradient(45deg, rgb(209, 232, 235),rgb(223, 219, 219));
+    /* background-color: #ececec; */
+    color:rgb(40, 51, 59);
+}
 .modin input{
     border: none;
     border-radius: 8px;
-    background-color: rgb(218, 231, 255);
+    background-color:rgb(230, 244, 250);
+    /* background-color: #fff; */
+}
+.modin h6{
+    color:rgb(30, 46, 58);
+}
+.modhe{
+    /* background-image: linear-gradient(45deg, aliceblue,rgb(223, 219, 219)); */
+    background-image: linear-gradient(45deg, rgb(209, 232, 235),rgb(223, 219, 219));
+
+    color: rgb(69, 69, 70);
+}
+.modfo{
+    /* background-image: linear-gradient(45deg, rgba(173, 171, 171, 0.89),rgb(223, 219, 219)); */
+        background-image: linear-gradient(45deg, rgb(209, 232, 235),rgb(223, 219, 219));
 }
 .clip{
     margin-left: 220px;
 }
 .dropdown-menu li{
+    /* background-color: transparent; */
     background-color: rgb(231, 243, 253);
     /* margin-left: 100px; */
 }
@@ -158,16 +200,55 @@
     cursor: pointer;
 }
 .logb1 button{
-    border: 0;
     padding: 0.5em 1.5em;
     cursor: pointer;
-    background-image: linear-gradient(90deg, rgb(151, 206, 252), rgb(240, 255, 246));
-    color:#003147;
-    transition: 0.5s;
+    transition: 0.8s;
     margin-left: 75px;
+    /* letter-spacing: 0.25em; */
+    border: 1px solid #3498db;
+    /* padding: 10px 20px; */
+    font-size: 20px;
+    /* margin: 10px; */
+    color: #3498db;
+    position: relative;
+    overflow: hidden;
 }
 .logb1 button:hover{
-    background-image: linear-gradient(90deg, rgb(240, 255, 246), rgb(48, 142, 250));
-    color: rgb(0, 0, 0);
-    transform: rotate(360deg);
+    color: #fff;
+}
+.logb1 button::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: #3498db;
+    z-index: -1;
+    transition: 0.8s;
+    bottom: 0;
+    border-radius: 50% 50% 0 0;
+}
+.logb1 button:hover::before{
+    height: 180%;
+}
+.dropdown-menu input{
+    height: 2px;
+    width: 20px;
+}
+.shit1 li{
+    /* margin-left: -150px; */
+    /* margin-top: -10px; */
+    /* width: 180px; */
+    background-color: transparent;
+}
+.shit1 li:hover{
+    background-color: aliceblue;
+}
+.shit1 label:hover{
+    cursor: pointer;
+}
+.shit1{
+    margin-left: -150px;
+    margin-top: -50px; 
+    padding: 10px;
 }

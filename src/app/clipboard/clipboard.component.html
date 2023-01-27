@@ -12,17 +12,18 @@
 
 <!-- Original card Start -->
 <div class="container mt-5">
-    <!-- <button (click)="deleteAll()">Clear All</button> -->
+    <!-- <button (click)="deleteAll(0)">Clear All</button> -->
     <div class="row">
+        <button *ngIf="this.clipNewsDisplay.length!=0" class="delebut" (click)="deleteAll(0)">Clear All</button>
         <div *ngFor="let d of clipNewsDisplay; let i = index" class="col-lg-3 mt-3 mb-3">
-
             <div class="box">
-                <!-- <img src="{{d.urlToImage}}" width="100%" alt=""> -->
+                <img src="{{d.image}}" width="100%" alt="">
                 <h5 class="mt-2 mb-2">{{d.title}}</h5>
                 <p>{{d.description}}</p>
                 <!-- <a class="btn btn-dark mt-2" href="{{d.url}}">Read More</a>     -->
                 <!-- <div class="id">{{ i }}</div> -->
-                <button class="btn btn-outline-dark" (click)="delete(i)">Delete Clip</button>
+                <button class="btn btn-outline-secondary">Read more</button>&nbsp;
+                <button class="btn btn-outline-danger" (click)="delete(i)"><i class="fa fa-trash"></i></button>
             </div>
         </div>
     </div>

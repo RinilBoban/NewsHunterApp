@@ -20,12 +20,13 @@ export class HealthComponent implements OnInit{
     })
     this.modi=0
   }
-  addTo(index:any,tit:any,des:any){
+  addTo(index:any,tit:any,des:any,img:any){
     tit=this.healthnewsDisplay[index].title
     des=this.healthnewsDisplay[index].description
+    img=this.healthnewsDisplay[index].urlToImage
     console.log(tit);
     console.log(des);
-    this.ds.addNews(tit,des)
+    this.ds.addNews(tit,des,img)
     .subscribe((result:any)=>{
       alert(result.message)
     },

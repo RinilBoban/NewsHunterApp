@@ -15,7 +15,7 @@ import { TechnologyComponent } from './technology/technology.component';
 const routes: Routes = [
   { path:'', redirectTo:'/home',pathMatch:'full' },
   { path: 'header', component:HeaderComponent},
-  { path: 'india', component:IndiaComponent},
+  { path: 'usa', component:IndiaComponent},
   { path: 'clipboard', component:ClipboardComponent},
   { path: 'search', component:SearchComponent},
   { path: 'sports', component:SportsComponent},

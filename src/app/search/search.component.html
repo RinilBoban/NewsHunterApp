@@ -29,11 +29,12 @@
             <div class="modal-body">
                 {{searchNewsDisplay[modi].description}}
                 <br>
-                <small class="text-muted">{{searchNewsDisplay[modi].source.name}}</small>
+                <small class="text-muted">{{searchNewsDisplay[modi].source.name}}</small><br>
+                <small class="text-muted">{{searchNewsDisplay[modi].publishedAt}}</small>
             </div>
             <div class="modal-footer">
                 <a type="button" class="btn btn-outline-dark" href="{{searchNewsDisplay[modi].url}}">Go to</a>
-                <button (click)="addTo(modi,searchNewsDisplay[modi].title,searchNewsDisplay[modi].description) "
+                <button (click)="addTo(modi,searchNewsDisplay[modi].title,searchNewsDisplay[modi].description,searchNewsDisplay[modi].urlToImage)"
                     type="button" data-bs-dismiss="modal" class="btn btn-dark">Save to clipboard</button>
             </div>
         </div>
